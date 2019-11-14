@@ -15,20 +15,39 @@
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 # Hint: Don't use `set()`
-
+__author__ = "Bryan"
 
 def remove_adjacent(nums):
-    """Your code goes here.  Edit this docstring."""
-    return
-
+    print(nums)
+    length_of_list = len(nums)
+    checking_place = 1
+    # [1,2,3,4,5]
+    while checking_place < length_of_list:
+        if nums[checking_place] == nums[checking_place - 1]:
+            nums.pop(checking_place)
+            length_of_list = len(nums)
+        else:
+            checking_place += 1
+    return nums            
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in sorted order. You may modify the passed in lists.
 # The solution should work in "linear" time, making a single pass of both lists.
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
 def linear_merge(list1, list2):
-    """Your code goes here.  Edit this docstring."""
-    return
+    # apple = list1.extend(list2)
+    list1.extend(list2)
+
+    final_list = []
+    while list1:
+        minimum = list1[0]
+        for x in list1:
+            if x < minimum:
+                minimum = x
+        final_list.append(minimum)
+        list1.remove(minimum)
+
+    return final_list
 
 
 # Simple provided test() function used in main() to print
